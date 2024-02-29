@@ -1,0 +1,31 @@
+check https://spark.apache.org/docs/latest/sql-data-sources.html
+https://towardsdatascience.com/demystifying-the-parquet-file-format-13adb0206705
+https://medium.com/analytics-vidhya/whats-the-buzz-about-parquet-file-format-8a1fe4f65de
+
+Delimitted File->
+how to create dataframe from list, dictionay ?
+how to read csv ? How to read any separator separated files ?
+what is escape char, quote char, escape sequence, separator ?
+how to pass custom schema ?
+what options are available while reading csv etc ?
+How options vary while reading from diffrent sources ?
+how to pass options while reading and what options to pass ?
+
+Databases->
+how to read from JDBC ?
+how to pass query while reading from JDBC ?
+how to pass database name, schema, table name while reading from JDBC ?
+what options are commonly used while reading from JDBC ?
+what is dbtable, query parameter in JDBC ?
+
+Parquet File->
+what is parquet file format ?
+how to read parquet ?
+how parquet file is different from other formats ?
+what makes parquet file default choice ?
+compression and encoding techniques used in parquet ?
+
+JSON File ->
+how to read a json file ?
+what is multiline while reading json ?
+How is it relevant while saving ?

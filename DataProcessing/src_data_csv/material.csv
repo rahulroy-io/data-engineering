@@ -1,0 +1,15 @@
+material_no,fabric,colour,pattern,cost
+1,Silk,Black,Plain,7
+2,Silk,Red Abstract,Printed,10
+3,Cotton,Yellow Stripe,Woven,3
+4,Cotton,Green Stripe,Woven,3
+5,Cotton,Black Dotted,Woven,3
+6,Cotton,Red Stripe,Woven,3
+7,Polyester,Pale Yellow,Printed,2.55
+8,Cotton,Blue Stripe,Woven,3
+9,Cotton,Pink Check,Woven,3
+10,Silk,Green Abstract,Printed,15
+11,Rayon,Red/Orange,Printed,4
+12,Serge,Navy Blue,Woven,5.5
+13,Cotton,Blue Abstract,Printed,3.5
+14,Cotton,Green Abstract,Printed,3.5

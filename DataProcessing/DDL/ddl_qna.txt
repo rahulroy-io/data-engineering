@@ -1,0 +1,7 @@
+how to create a schema ? use struct, use row, use simplestring
+How to pass schema ?
+what is the datatype of df.schema ?
+How to modify schema ?
+how to modify struct schema ?
+how to cast a column using pyspark API ? Check dir(F.col('abc'))
+how to add/drop/cast a column ?

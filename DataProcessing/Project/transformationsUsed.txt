@@ -1,0 +1,4 @@
+converting dataframe rows to json rows. 
+    how to create a nested column ? what pyspark datatype support nested columns ?
+    Difference between StructType vs ArrayType vs MapType ?
+    how to drop a field from a nested column ? drop vs dropFields
