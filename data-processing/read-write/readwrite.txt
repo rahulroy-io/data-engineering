@@ -1,0 +1,88 @@
+##### Spark SQL Data Sources
+- [Official Spark SQL Data Sources Documentation](https://spark.apache.org/docs/latest/sql-data-sources.html)
+- [Demystifying the Parquet File Format](https://towardsdatascience.com/demystifying-the-parquet-file-format-13adb0206705)
+- [What's the Buzz About Parquet File Format](https://medium.com/analytics-vidhya/whats-the-buzz-about-parquet-file-format-8a1fe4f65de)
+
+##### Delimited File
+- Creating Dataframe from List and Dictionary
+- Reading CSV and Separator-Separated Files
+- Understanding Escape Character, Quote Character, Escape Sequence, Separator
+- Passing Custom Schema
+- Available Options while Reading CSV
+- Options Variation Across Different Sources
+- How to Pass and Choose Options
+
+##### Databases
+- Reading from JDBC
+- Passing Queries in JDBC
+- Specifying Database Name, Schema, Table Name in JDBC
+- Commonly Used Options in JDBC
+- Understanding `dbtable` and `query` Parameters in JDBC
+
+##### Parquet File
+- Introduction to Parquet File Format
+- Reading Parquet Files
+- Differences from Other Formats
+- Why Parquet File is a Default Choice
+- Compression and Encoding Techniques in Parquet
+
+##### JSON File
+- Reading JSON Files
+- Handling Multiline JSON and its Relevance in Saving
+
+##### SaveAsTable vs. df.write
+- Difference Between `saveAsTable` and `df.write`
+- Available Writing Modes in `df.write`
+
+
+Scenario: Incremental Data Load:
+Question: You have a daily batch of data arriving in CSV format. 
+You want to perform an incremental load into a managed Parquet table named "daily_data." 
+How would you implement this using SaveAsTable?
+
+Use PySpark to read the daily CSV data into a DataFrame.
+Load the existing "daily_data" table.
+Merge the new data with the existing table.
+Save the updated DataFrame back to the "daily_data" table using 
+df.write.mode("append").format("parquet").saveAsTable("daily_data").
+
+Scenario: Aggregated Summary Table:
+Question: You're tasked with creating a summary table that aggregates data from a raw source table. 
+The summary should be saved as a Delta table named "monthly_summary." 
+How would you achieve this using SaveAsTable?
+
+Read the raw source data into a PySpark DataFrame.
+Perform necessary aggregations to create the monthly summary.
+Save the aggregated DataFrame to a Delta table named "monthly_summary" using df.write.format("delta").saveAsTable("monthly_summary")
+
+Scenario: Cross-Source Integration:
+Question: You have data coming from both CSV and Parquet sources. 
+Your goal is to integrate this data and store it as a managed table named "integrated_data." 
+How would you approach this using SaveAsTable?
+Read data from both CSV and Parquet sources into separate DataFrames.
+Perform necessary transformations and join operations.
+Save the integrated DataFrame as a managed table named "integrated_data" using df.write.mode("overwrite").format("parquet").saveAsTable("integrated_data").
+
+Scenario: Partitioned Table for Historical Data:
+Question: You are working with a large dataset and need to create a historical table partitioned by date. 
+The source data is in JSON format. How would you structure this and use SaveAsTable?
+Read the JSON data into a PySpark DataFrame.
+Extract and format the date information for partitioning.
+Save the DataFrame as a partitioned table named "historical_data" using df.write.partitionBy("date_column").format("parquet").saveAsTable("historical_data").
+
+Scenario: Customized Output Format:
+Question: Your team requires the output to be stored in a custom text format for further downstream processing. 
+How would you save a DataFrame as a managed table in this custom format?
+Configure the required custom format using Spark configurations.
+Perform any necessary data transformations.
+Save the DataFrame as a managed table named "custom_output" using df.write.format("custom_text_format").saveAsTable("custom_output").
+
+Scenario: Real-time Aggregation and Storage:
+Question: You are tasked with building a real-time analytics solution for streaming data. 
+The data is arriving in JSON format, and you need to aggregate it by a specific key 
+and persist the aggregated results in a managed table named "realtime_aggregates." 
+How would you implement this using PySpark Streaming and SaveAsTable?
+Set up a PySpark Streaming application to consume and process the incoming JSON data.
+Use windowed or tumbling time-based operations to aggregate data by the specified key.
+Store the aggregated results in a DataFrame.
+Save the aggregated DataFrame as a managed table named "realtime_aggregates" using df.write.format("parquet").mode("append").saveAsTable("realtime_aggregates").
