@@ -1,0 +1,2 @@
+use local development
+setting up docker container with aws glue image and configuring it aws, reducing the use of aws resources

@@ -1,5 +1,7 @@
 choosing the correct file format as per requirement csv, parquet
 choosing the correct compression technique(LZO, snappy, gzip in case of parquet) to be used while writing data
 reading data directly from s3 vs reading data from data catalog tables
-
-delta lake - vaccum
+using delta lake
+using notebook magics -> session id prefix
+setting notebook guidelines for team members how to use to reduce billing
+using local development etc
