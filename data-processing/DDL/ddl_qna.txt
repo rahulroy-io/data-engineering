@@ -1,3 +1,9 @@
+what is sparkcontext ?
+what is entry point in a program and spark
+whats are the differences betweem spark 1.x vs 2.x vs 3.x
+what is delta lake, hudi, iceberg and why it is there ?
+see https://paper.dropbox.com/doc/Common-Concepts--CUpxF5aHD_riFah_YgOZrOnPAg-8g9zEyMA9G0m6K7eidHxZ
+
 how to create a schema ? use struct, use row, use simplestring
 How to pass schema ?
 what is the datatype of df.schema ?
