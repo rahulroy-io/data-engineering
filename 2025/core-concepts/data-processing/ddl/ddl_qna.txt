@@ -1,0 +1,22 @@
+what is sparkcontext ?
+what is entry point in a program and spark
+whats are the differences betweem spark 1.x vs 2.x vs 3.x
+what is delta lake, hudi, iceberg and why it is there ?
+see https://paper.dropbox.com/doc/Common-Concepts--CUpxF5aHD_riFah_YgOZrOnPAg-8g9zEyMA9G0m6K7eidHxZ
+
+how to create a schema ? use struct, use row, use simplestring
+How to pass schema ?
+what is the datatype of df.schema ?
+How to modify schema ?
+how to modify struct schema ?
+how to cast a column using pyspark API ? Check dir(F.col('abc'))
+how to add/drop/cast a column ?
+
+what is array of columns ? How it is differenct from struct of columns ?
+differnce between structType vs map vs array vs collect_list vs collect_set ?
+
+how to flatten stuct of columns ?
+how to flatten map and array ?
+
+can explode function be applied to struct ?
+do records increase after explode ? 
