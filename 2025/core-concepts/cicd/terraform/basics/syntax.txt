@@ -1,0 +1,53 @@
+Source -> https://developer.hashicorp.com/terraform/language
+
+what is Terraform ? Scenarios and how to use ? Folder structure ? How to have it in CI/CD ?
+Terraform -> IAAC
+Terraform execution -> runs all .tf files of the root folder. 
+Execution order -> alphabetical order. It doesn't matter if codes are split into multiple .tf files.
+
+How to test terraform codes logical functions before putting in blocks ? using terraform console to test code.
+
+  
+
+common terraform Syntax
+<BLOCK TYPE> "<BLOCK LABEL>" "<BLOCK LABEL>" {
+  # Block body
+  <IDENTIFIER> = <EXPRESSION> # Argument
+}
+
+as per block type Syntax is different
+IDENTIFIER cannot be any name
+check block type documentation for valid IDENTIFIER names
+
+we can put all run time arguments values in a file and that is called a tfvars file
+tfvars file is always terraform.tfvar unless used -var_file=anyname.tfvars
+
+providers block ->  we mention the provider details in this block, this helps to download all 
+necessary api/files (collectively called plugins) that will be used by terraform to create 
+resources in that provider as per terraform script.
+Terraform plan runs a simulation of .tf files but it does not have the implementation
+it requires so running terraform init would download all required implementation 
+for terraform plan
+
+terraform.tfstate -> after applying the terraform plan, a file is created which keeps the knowledge
+about the applied changes. This helps in roll back. It knows about the current state and knows what
+to delete.
+
+
+| Block Type                    | Example Syntax                                        | Purpose                                                       |
+| ----------------------------- | ----------------------------------------------------- | ------------------------------------------------------------  |
+| Provider                      | provider "<provider_name>" { ... }                    | Define provider-specific configurations                       |
+| Resource                      | resource "<resource_type>" "<resource_name>" { ... }  | Define and configure infrastructure resources                 |
+| Data                          | data "<data_source_type>" "<data_source_name>" { ... }| Retrieve and use data from external sources                   |
+| Module                        | module "<module_name>" { ... }                        | Use external modules for reusable configurations              |
+| Variable                      | variable "<variable_name>" { ... }                    | Declare input variables                                       |
+| Output                        | output "<output_name>" { ... }                        | Declare values to be exposed after configuration apply        |
+| Provider Configuration        | provider "<provider_name>" { ... }                    | Specify provider-specific configuration settings              |
+| Backend                       | backend "<backend_type>" { ... }                      | Configure remote backend settings                             |
+| Locals                        | locals { ... }                                        | Define local values for reuse within the configuration        |
+| Terraform                     | terraform { ... }                                     | Set global Terraform settings                                 |
+| Dynamic                       | dynamic "<block_type>" { ... }                        | Dynamically generate blocks based on expressions              |
+| Required Providers            | required_providers { ... }                            | Specify required providers and versions                       |
+| Variable Validation           | validation { ... }                                    | Define validation rules for input variables                   |
+| Module Source (for Modules)   | source = "<module_source>" { ... }                    | Specify the source of an external module                      |
+| Provisioner (within Resources)| provisioner "<provisioner_type>" { ... }              | Define actions to be performed on a resource after creation   |

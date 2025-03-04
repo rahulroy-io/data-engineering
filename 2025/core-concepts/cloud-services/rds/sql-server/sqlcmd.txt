@@ -1,0 +1,37 @@
+
+https://learn.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools?view=sql-server-ver16&tabs=ubuntu-install%2Credhat-offline
+https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver16&tabs=ubuntu18-install%2Calpine17-install%2Cdebian8-install%2Credhat7-13-install%2Crhel7-offline
+
+
+lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 22.04.2 LTS
+Release:        22.04
+Codename:       jammy
+
+uname -a
+Linux ip-172-31-19-234 5.19.0-1025-aws #26~22.04.1-Ubuntu SMP Mon Apr 24 01:58:15 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+
+
+sqlcmd -S sql-server-source.cfoapfkvmzlt.us-east-2.rds.amazonaws.com -U admin -P rahulroy53
+sqlcmd -S sql-server-target.cfoapfkvmzlt.us-east-2.rds.amazonaws.com -U admin -P rahulroy53
+
+bcp "SELECT * FROM [testdatabase].[dbo].[employee]" QUERYOUT op -S sql-server-source.cfoapfkvmzlt.us-east-2.rds.amazonaws.com -U admin -P rahulroy53 -n
+
+bcp [tgtdb].[dbo].[employee] IN op -S sql-server-target.cfoapfkvmzlt.us-east-2.rds.amazonaws.com -U admin -P rahulroy53 -n
+
+
+CREATE TABLE Employee (EmployeeID INT PRIMARY KEY, DateOfBirth DATE);
+
+SELECT CHECKSUM_AGG(BINARY_CHECKSUM(EmployeeID, DateOfBirth)) AS TableHash FROM [Employee];
+
+SELECT CHECKSUM_AGG(BINARY_CHECKSUM(*)) AS TableHash FROM [YourTableName];
+
+SELECT HASHBYTES('SHA2_256', CONCAT(Column1, Column2, Column3, ...)) AS TableHash
+FROM [YourTableName];
+
+CREATE TABLE Employee (EmployeeID INT PRIMARY KEY, FirstName VARCHAR(50), LastName VARCHAR(50), DateOfBirth DATE, Gender CHAR(1), Department VARCHAR(50), Position VARCHAR(50), Salary DECIMAL(10, 2), HireDate DATE, Address VARCHAR(100), City VARCHAR(50), State VARCHAR(50), PostalCode VARCHAR(10), Country VARCHAR(50));
+
+
+
