@@ -1,0 +1,93 @@
+id,name,sze,parent
+co.12008.Ea,WP and SS Elective,50,NULL
+co.12008.Eb,WP and SS Elective,50,NULL
+co.12012.E,UEC Elective,32,NULL
+co.22022.E,C++ Elective,40,NULL
+co1.BAe,BAe,15,NULL
+co1.CO,Computing 1st Year,150,NULL
+co1.CO.a,Computing 1st Year a,20,co1.CO
+co1.CO.c,Computing 1st Year c,20,co1.CO
+co1.CO.d,Computing 1st Year d,20,co1.CO
+co1.CO.e,Computing 1st Year e,20,co1.CO
+co1.CO.f,Computing 1st Year f,20,co1.CO
+co1.CO.h,Computing 1st Year h,20,co1.CO
+co1.CO.i,Computing 1st Year i,20,co1.CO
+co1.CO.j,Computing 1st Year j,20,co1.CO
+co1.IS,BSc Information Systems 1st Year,40,NULL
+co1.IS.a,BSc Information Systems 1st Year a,20,co1.IS
+co1.IS.b,BSc Information Systems 1st Year b,20,co1.IS
+co1.SE.pt,Software Engineering p/t 1,2,NULL
+co2.CO,Computing 2nd Year,100,NULL
+co2.CO.a,Computing 2nd Year a,20,co2.CO
+co2.CO.b,Computing 2nd Year b,20,co2.CO
+co2.CO.c,Computing 2nd Year c,20,co2.CO
+co2.CO.d,Computing 2nd Year d,20,co2.CO
+co2.CO.e,Computing 2nd Year e,20,co2.CO
+co2.CO.i,Computing 2nd Year Bridging,20,NULL
+co2.CO.j,Computing 2nd Year Bridging,20,NULL
+co2.CO.k,Computing 2nd Year Bridging,20,NULL
+co2.IS,Information Systems 2nd Year,20,NULL
+co2.NT.Ea,NT Elective,20,NULL
+co2.NT.Eb,NT Elective,20,NULL
+co2.NT.Ec,NT Elective,20,NULL
+co2.NT.Ed,NT Elective,20,NULL
+co2.NT.Ee,NT Elective,20,NULL
+co2.SE.pt,Software Engineering p/t 2,10,NULL
+co3.CO,BEng3 SoC year 3 (non SWE),2,NULL
+co3.DMM,DEBS 3 Multimedia,15,NULL
+co3.DNC,DEBS Network Computing Year 3,27,NULL
+co3.DST,DEBS 3 Software Technology,4,NULL
+co3.IS,BSc3 Information Systems,0,NULL
+co3.MM,BEng3 Multimedia (non SWE),20,NULL
+co3.ND,BEng3 Network and DS (non SWE),15,NULL
+co3.SE,BEng3 Software Engineering (non SWE),35,NULL
+co3.SE.pt,BEng3 Software Engineering p/t,5,NULL
+co4.CO,BSc4 Computing,25,NULL
+co4.DNC,DEBS 4 Network Computing,5,NULL
+co4.IS,BSc4 Information Systems,5,NULL
+co4.MM,BEng4 Multimedia Systems,22,NULL
+co4.ND,BEng4 Network and Distributing Systems,5,NULL
+co4.SE,BEng4 Software Engineering,30,NULL
+co4.SE.pt,BEng4 Software Engineering p/t,5,NULL
+co5.SE.pt,BEng5 Software Engineering p/t,5,NULL
+coh.HND1,HND Year 1,80,NULL
+coh.HND1a,HND Computing Year 1 a,20,coh.HND1
+coh.HND1b,HND Computing Year 1 b,20,coh.HND1
+coh.HND1c,HND Computing Year 1 c,20,coh.HND1
+coh.HND1d,HND Computing Year 1 d,20,coh.HND1
+coh.HND2,HND Computing Year 2,30,NULL
+coh.HND2a,HND Computing Year 2 a,15,coh.HND2
+coh.HND2b,HND Computing Year 2 b,15,coh.HND2
+com.IS,PgD Information Systems,115,NULL
+com.IS.a,PgD Information Systems a (HCI),25,com.IS
+com.IS.b,PgD Information Systems b (DS),15,com.IS
+com.IS.d,PgD Information Systems d (BT),29,com.IS
+com.IS.e,PgD Information Systems e (OOP),29,com.IS
+com.IS.th,PgD Information System pt. Thurs,5,NULL
+com.IS.tu,PgD Information System pt. Tues,5,NULL
+com.ITeC,PgD IT and e-Commerce,25,NULL
+com.ITeC.feb,NULL,20,NULL
+com.ITeC.pt1,PgD IT and e-Commerce Oct pt,20,NULL
+com.ITeC.pt2,PgD IT and e-Commerce,25,NULL
+com.ITeC.z1,PgD IT and e-Commerce Oct evening,20,NULL
+com.ITeC.z2,PgD IT and e-Commerce Feb evening,19,NULL
+com.ITeC.z3,PgD IT and e-Commerce eve sem 3,20,NULL
+com.ITFS,PgD IT and Financial Services,25,NULL
+com.MM,PgD Multimedia FT Oct,128,NULL
+com.MM.a,PgD Multimedia a,32,com.MM
+com.MM.b,PgD Multimedia b,32,com.MM
+com.MM.c,PgD Multimedia c,32,com.MM
+com.MM.d,PgD Multimedia d,30,com.MM
+com.MM.feb,PgD Multimedia Feb intake,25,NULL
+com.MM.pt1,PgD Multimedia pt sem 1,8,NULL
+com.MM.pt2,PgD Multimedia p/t sem 2,4,NULL
+com.MM.pt3,PgD Multimedia sem 3,8,NULL
+com.MM.pt4,PgD Multimedia Oct. p/t sem 4,20,NULL
+com.SE,PgD Software Engineering,35,NULL
+com.SE.th,PgD Software Engineering pt th,5,NULL
+com.SE.tu,PgD Software Engineering pt tu,5,NULL
+com.ST,PgD Software Technology,45,NULL
+com.ST.a,PgD Software Technology a (HCI),10,com.ST
+com.ST.b,PgD Software Technology b (DS),10,com.ST
+com.ST.th,PgD Software Technology pt. Thurs,5,NULL
+com.ST.tu,PgD Software Technology pt. Tues,5,NULL

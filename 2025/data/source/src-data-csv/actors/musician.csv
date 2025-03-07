@@ -1,0 +1,23 @@
+m_no,m_name,born,died,born_in,living_in
+1,Fred Bloggs,1948-01-02,NULL,1,2
+2,John Smith,1950-03-03,NULL,3,4
+3,Helen Smyth,1948-08-08,NULL,4,5
+4,Harriet Smithson,1909-05-09,1980-09-20,5,6
+5,James First,1965-06-10,NULL,7,7
+6,Theo Mengel,1948-08-12,NULL,7,1
+7,Sue Little,1945-02-21,NULL,8,9
+8,Harry Forte,1951-02-28,NULL,1,8
+9,Phil Hot,1942-06-30,NULL,2,7
+10,Jeff Dawn,1945-12-12,NULL,3,6
+11,Rose Spring,1948-05-25,NULL,4,5
+12,Davis Heavan,1975-10-03,NULL,5,4
+13,Lovely Time,1948-12-28,NULL,6,3
+14,Alan Fluff,1935-01-15,1997-05-15,7,2
+15,Tony Smythe,1932-04-02,NULL,8,1
+16,James Quick,191924-08-08,NULL,9,2
+17,Freda Miles,191920-07-04,NULL,9,3
+18,Elsie James,1947-05-06,NULL,8,5
+19,Andy Jones,1958-10-08,NULL,7,6
+20,Louise Simpson,1948-01-10,1998-02-11,6,6
+21,James Steeple,1947-01-10,NULL,5,6
+22,Steven Chaytors,1956-03-11,NULL,6,7
