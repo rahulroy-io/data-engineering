@@ -1,0 +1,22 @@
+[
+    {
+        "employee_table":{
+            "id":1,
+            "name": "Rahul Roy"
+        },
+        "salary_table": {
+            "id": 1,
+            "salary": 10000
+        }
+    },
+    {
+        "employee_table":{
+            "id":2,
+            "name": "Pallavi Bhole"
+        },
+        "salary_table": {
+            "id": 2,
+            "salary": 20000
+        }
+    }
+]

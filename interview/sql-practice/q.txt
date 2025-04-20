@@ -1,0 +1,375 @@
+1. Discussion around project done in past in details?
+
+2. How to parse nested Json source?
+
+3. What challenges faced in your project and what performance optimization techniques used?
+
+4. How to find skewness in data?
+
+5. How to debug which transformation step failed?
+
+6. Handling and how to identify overhead memory errors?
+
+7. One sql programing question both in spark and in sql- top salary at department level?
+
+8. Question around DAG and spark working at backend?
+
+9. Brief about yourself
+
+10. Explain Project Architecture
+
+11. What is the Solid Principal in Java programing Language.
+
+12. Difference between Group by Key and Reduce by Key.
+
+13. How to write your own interface for data processing using programming language.
+
+14. Explain Aggregate by key function and how to use with example.
+
+15. Create your own function and find out max values in the List, don’t use max/sort function.
+
+16. Coloease and Reparation difference and which scenario we are using.
+
+17. What is the Action and transformation & which action you are using
+
+18. What is the EDA and how you are doing data massaging
+
+19. How to create data pipeline
+
+20. Discussion around project done in past. Follow up question on Optimization.
+
+21. How to use explode?
+
+22. Difference strategy used in current project and why? what is best optimal join strategy (wanted to understand at the partition level)?
+
+23. Spark job optimization?
+
+24. Python question on finding second min and second max?
+
+25.SQL question on Group By, Partition By.
+
+26. CI/CD implementation of spark job
+
+
+History of Big Data - Hadoop Ecosystem, Hive Vs Spark
+
+· Strong SQL concepts- Joins, Aggregate Functions, Window functions, Analytical functions
+
+· Spark SQL – solving problem with Spark SQL Vs Data frames filters and transformations
+
+· Job Deployment and scheduling, Airflow, Oozie or cron schedule
+
+· Spark Data frames Vs Datasets Vs RDD. Advantages of each over other. Where to use each of these.
+
+· Data Frame joins. Spark Data frames Vs Pandas Data frames.
+
+· Spark job internals – Difference between Application, Job, Task, Stages
+
+· Actions and Transformations (Narrow Vs Wide)
+
+· How to avoid shuffling in Spark, Reduce By Key Vs Group by Key.
+
+· Memory Optimization – How to decide number of cores and executors in Spark
+
+· Performance Optimization – Data Skewness problem, how to resolve
+
+· Designing data pipelines.
+
+· Broadcast variables and accumulators
+
+· Coaleasce Vs Repartition, which one is better
+
+· Cache and Persist
+
+· OOPS – Design Patterns /Solid Principles
+
+· Data Structure problem solving using Python/Java. (Refer string, array ,list problems from GeekForGeeks) · Explanation of new Spark 3.0 features .Majorly around dynamic partition pruning.
+
+· Explain Spark Architecture
+
+· How to decide number of executers, memory for 1gb data
+
+Ø Spark Hands on focused methods
+
+• Working with diff. file formats
+
+• RDD and dataframe creation
+
+• Certain transformations and actions (atleast basics needs to be convered)
+
+• Try to cache and persist
+
+• Join dataframes using pyspark
+
+• Drop or impute certain value in dataframe
+
+• Dropping duplicate rows using pyspark
+
+• String to date conversion using pyspark
+
+• Try to implement row, rank functions using pyspark (not sql)
+
+Project Description in detail
+
+2. Project Architecture, Technology stack used, explain in details
+
+3. Data modelling
+
+4. What is SCD? How to implement SCD2 in DW
+
+5. Data lake vs Datawarehouse
+
+6. What is coalesce vs repartition
+
+7. narrow vs wide Transformation
+
+8. How to partition data using partitionBy
+
+9. Airflow - how to run dag2 after Dag 1? how to pass value between two dags | variables | connections
+
+10. data validation framework? how to implement? what to implement?
+
+11. Sql Hands on – Two tables given, apply Left, Right, Inner and Full Join
+
+12. how to call API to pull data from source system
+
+13. how to fetch data from oracle
+
+14. how to create dataframe - handson
+
+15. how to maintain historical data
+
+16. how to handle duplicate data
+
+17. coalesce and repartition
+
+18. spark architecture
+
+19. client mode and cluster mode
+
+20. accumulator variable
+
+21. explain ETL process from your project
+
+22. scoop commands. How to bring incremental from scoop
+
+23. Basic understanding of Hive
+
+24. How to get requirement - Jira
+
+25. Deployment process
+
+26. spark data frame creation - hands on
+
+27. spark windowing function
+
+28. SQL windowing function
+
+29. Explain Project Architecture
+
+30. Spark optimization techniques
+
+31. how to decide workers nodes in glue and other glue configurations in detail
+
+32. How to deal with slowness if applied SCD2
+
+33. Understanding of YARN Logs
+
+34. What are decorators
+
+35. What is pickling in python
+
+36. map vs flat map [example syntax]
+
+37. when to use rank vs dense rank
+
+38. spark architecture
+
+39. How to avoid data shuffling (optimize)
+
+40. spark UI
+
+41. when to decide what to use Scala or pyspark
+
+42. Project explanation
+
+43. roles and responsibilities of an etl engineer
+
+44. what is data lake
+
+45. what is materalized view
+
+46. what is the difference between materalized view and normal view
+
+47. what is an iterator
+
+48. what is generator
+
+49. what is the difference between generator and iterator
+
+50. how we can add two arrays together in python
+
+51. what is the difference between pandas dataframe and spark dataframe
+
+52. how can we set the dependencies on airflow
+
+53. what is the difference between apache spark and apache airflow
+
+54. windows function in sql
+
+55. find the second highest salary using windows function
+
+56. what is partition by in windows function and how is it different from group by
+
+57. what is a distribution key in red shift
+
+Ø Focus Areas:
+
+· Strong Spark SQL concepts- Joins, Aggregate Functions, Window functions, Analytical functions
+
+· Spark SQL – solving problem with Spark SQL Vs Data frames filters and transformations
+
+· Job Deployment and scheduling, Airflow, Oozie or cron schedule
+
+· Spark Data frames Vs Datasets Vs RDD. Advantages of each over other. Where to use each of these.
+
+· Actions and Transformations (Narrow Vs Wide)
+
+· How to avoid shuffling in Spark, Reduce By Key Vs Group by Key.
+
+· Data Skewness and how to resolve the same
+
+· Spark Memory Optimization Techniques
+
+· How to decide glue worker nodes and worker types
+
+· Explain AWS data pipeline
+
+· Challenges faced during pipeline implementation
+
+· Delta Lake benefits and APIs
+
+· Explain Spark Architecture
+
+· Data ware house Concepts
+
+· AWS Glue Dynamic Frames
+
+· SQL – Joins, Windowing functions, SQL optimization techniques
+
+· Process to Create airflow DAG
+
+· Coalesce & Repartition
+
+· Transformation and action
+
+Good Youtube channels for spark interview problems : · https://www.youtube.com/@ScholarNest · https://www.youtube.com/@TechWithViresh
+
+• YouTube playlist for Spark tutorial : https://www.youtube.com/watch?v=4jq9rCw2yiI&list=PL1oA0dIEOknV1kaadt6tAEeUSt2OU8ufz
+
+• Data Warehouse Guide Data Warehouse Guide | Panoply
+
+• Dimensional Modeling What is Dimensional Modeling in Data Warehouse? Learn Types (guru99.com)
+
+• Flattening JSON using PySpark Flattening JSON records using PySpark | by Shreyas M S | Towards Data Science
+
+• Spark RDD Tutorial  Apache Spark RDD Tutorial | Learn with Scala Examples - Spark By {Examples} (sparkbyexamples.com)  Spark Pair RDD Functions - Spark By {Examples} (sparkbyexamples.com)
+
+• AWS Glue Dynamic Frames  DynamicFrame class - AWS Glue (amazon.com)
+
+• RDD vs. Dataframes vs. Dataset  RDD vs. DataFrame vs. Dataset {Side-by-Side Comparison} (phoenixnap.com)
+
+• Create your first airflow dag  https://www.youtube.com/watch?v=2nhdhIYueIE
+
+ Data Lake vs Data Warehouse  Data Lake vs. Data Warehouse: What’s the Difference? | Coursera
+
+ Slowly Changing Dimensions  Slowly Changing Dimensions (SCD) in Data Warehouse - DWgeek.com
+
+ Spark Web UI  Spark Web UI - Understanding Spark Execution - Spark By {Examples} (sparkbyexamples.com)
+
+ SCD  https://awstip.com/slowly-changing-dimensions-in-aws-redshift-e6e43ed25dd9
+
+Distribution of executers , cores and memory  https://spoddutur.github.io/spark-notes/distribution_of_executors_cores_and_memory_for_spark_application.html#:~:text=According%20to%20the%20recommendations%20which%20we%20discussed%20above%3A&text=Number%20of%20available%20executors%20%3D%20(total,executor%20%3D%2064GB%2F3%20%3D%2021GB
+
+Project explanation
+roles and responsiblites of an etl engineer
+what is data lake
+what is materalized view
+what is the difference between materalized view and normal view
+what is an iterator
+what is generator
+what is the difference between generator and iterator
+how we can add two arrays together in python
+what is the difference between pandas dataframe and spark dataframe
+how can we set the dependencies on airflow
+what is the difference between apache spark and apache airflow
+windows function in sql
+find the second highest salary using windows function
+what is partition by in windows function and how is it different from group by
+what is a distribution key in red shift
+
+
+Explain Project Architecture
+Spark optimization techniques 
+how to decide workers nodes in gue and other glue configurations in detail
+How to deal with slowness if applied SCD2 
+Unsrstanding of YARN Logs
+What are decorators
+What is pickling in python
+map vs flatmap [example syntax]
+when to use rank vs dense rank
+spark architecture
+How to avoid data shuffling (optimize)
+spark UI
+when to decide what to use scala or pyspark
+
+Explain Project Architecture
+Spark optimization techniques 
+how to decide workers nodes in gue and other glue configurations in detail
+How to deal with slowness if applied SCD2 
+Unsrstanding of YARN Logs
+What are decorators
+What is pickling in python
+map vs flatmap [example syntax]
+when to use rank vs dense rank
+spark architecture
+How to avoid data shuffling (optimize)
+spark UI
+when to decide what to use scala or pyspark
+
+groupbykey, reducebykey
+
+
+my intro -> their intro -> project description -> architecture description -> jobflow / workernode
+
+
+She explained Project in depth, asked about the data sources and target DW, transfromation and complexities about the project and what were the challenges 
+Answered pyspark basic transformation questions but was facing challenges in understanding the scenario, in scenario based hands on que
+Asked que to optimise very huge historical and transactional dataset union, approach was correct 
+Asked to save a sample dataset with having special char in column name, Not able to ans
+
+
+design and develop process
+
+
+Archtecture
+spark architecture used, cluster optimzation techniques
+Pyspark/Coding -> file handing, transformation used, udfs, broadcast join, max code, optimation techniques used, challenges, solution
+Python/Coding -> basics, sort 
+SQL/Coding -> lead lag window group by
+AWS/Azure/ -> services used
+Other Cloud
+ETL Concepts -> scd used, datalake va delta lake  vs datawarehouse
+Communication
+
+SELECT * FROM "msil_mscrm_outbound_dev"."mosaccidental_api" where response_code='200' and regexp_count(reference_number, '-')=1 limit 10;
+SELECT * FROM "msil_mscrm_outbound_dev"."mosbreakdown_api" where response_code='200' and regexp_count(reference_number, '-')=1 limit 10;
+SELECT * FROM "msil_mscrm_outbound_dev"."mosmcall_api" WHERE job_run_id in ('20240221142951475966', '20240221174210202964', '20240222022052714549') and regexp_count(reference_number, '-')=1 limit 10
+
+SELECT * FROM "msil_mscrm_structured_dev"."casemanagementfeedback_dl" where dataset_date='20230602'
+except
+SELECT * FROM "msil_mscrm_structured_prod"."casemanagementfeedback_dl" where dataset_date='20230602'
+
+onelake, external, managed, delta with path, deltalive
+silver and golden -> acidicity
+datawarehouse vs lakehouse

@@ -1,0 +1,22 @@
+Act as a career coach and technical mentor. I am preparing for  Role Databricks + AWS Data Engineer Architect interview in Year 2025. My goal is to become a developer cum data architect. I am currently at an intermediate level and want a comprehensive study plan and documentation structure to ensure I don’t miss any important topics with granular details.
+
+Here’s what I need:
+1. **Study Plan**:  
+   - Break down the topics into categories.  
+   - Include advanced topics, tools, and practical exercises for each category.  
+   - Align the plan with industry trends for 2025.  
+
+2. **Folder Structure**:  
+   - Create a detailed folder structure for organizing my documentation.  
+   - Include subfolders and files for each topic (e.g., markdown files for concepts, notebooks for coding).  
+   - Ensure the structure is scalable and easy to navigate.  
+
+3. **Additional Tips**:  
+   - Provide a Python script to generate the folder structure automatically.  
+   - Include a checklist or progress tracker to monitor my preparation. 
+
+Please provide a detailed response with tables, examples, and actionable steps.
+
+------------------------------------------------
+
+I want a detailed tutorial on [] along with an guided example. I believe these are solution to a real-world problem. There should be an origin story explaining the pain points and challenges that led to its necessity. The tutorial should be structured from the perspective of a Data Engineer cum Architect implementing a solution for a client. I would like to understand it first through a practical implementation story, followed by technical explanations, best practices, and a structured breakdown. While explaining also expand the supporting core concepts or terminologies.

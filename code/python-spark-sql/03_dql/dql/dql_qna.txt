@@ -1,0 +1,15 @@
+how to select columns in a dataframe ?
+what param to pass in select() ? return type ?
+what is difference between select() vs selectExpr() ?
+what param to pass in selectExpr()
+when to use select and selectExpr ?
+how to work with multiple columns in selectExpr() ?
+Do functions work in selectExpr() ?
+
+what is expr ? How to use ? When to use ?
+
+how to order a dataframe ?
+what is the difference between orderBy and sort ?
+how to apply ascending and descending order ? nullsfirst etc.
+
+how to apply groupBy ? Use expr

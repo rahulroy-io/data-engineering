@@ -1,0 +1,7 @@
+Level_code,Manager,Operator,Engineer
+1,NULL,Y,NULL
+2,NULL,NULL,Y
+3,NULL,Y,Y
+4,Y,NULL,NULL
+5,Y,Y,NULL
+7,Y,Y,Y

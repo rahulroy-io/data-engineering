@@ -1,0 +1,60 @@
+how to add/remove/drop/rename/cast columns ?
+allias purpose although withColumnRenamed is there ?
+how withColumnRenamed is different from using select() and selectExpr()?
+what are the functions available in column objects ? 
+how to apply inbuilt functions to columns ? Uage of some inbuilt functions ?
+
+where F.expr("") can be used ?
+can multiple columns be passed inside F.expr() ?
+how to perform group by using pyspark ?
+how to apply multiple agg functions on group data ?
+how to change column name after applying group by ?
+how to use F.expr("") on agg ?
+
+how to use window function using dataframe api ?
+
+what is iso8601 datetime format ?
+
+
+
+
+
+
+
+
+
+Data Cleaning:
+
+Handling missing values: Filling in missing data with appropriate values (e.g., averages, most frequent values, or custom logic).
+Identifying and removing outliers: Detecting and excluding data points that deviate significantly from the norm.
+Correcting data inconsistencies: Resolving errors in data formats, values, or relationships.
+Removing duplicates: Identifying and eliminating redundant records.
+Data Formatting:
+
+Data type conversions: Converting data from one data type to another (e.g., string to date, integer to float).
+Date and time formatting: Ensuring consistency in date and time representations.
+Unit conversions: Standardizing units of measurement across different data sources.
+String manipulation: Formatting text data for consistency (e.g., trimming spaces, converting to uppercase or lowercase).
+Data Structuring:
+
+Joining datasets: Combining data from multiple sources based on common attributes.
+Splitting datasets: Dividing datasets into smaller, more manageable subsets.
+Pivoting: Reshaping data from a wide to a long format or vice versa.
+Aggregation: Summarizing data by applying functions like sum, count, average, etc.
+Data Validation:
+
+Enforcing data constraints: Applying rules to ensure data quality and integrity (e.g., value ranges, data types, format restrictions).
+Detecting and flagging errors: Identifying data that violates validation rules.
+Data Enrichment:
+
+Adding new attributes: Deriving new information from existing data or incorporating external data sources.
+Standardizing codes and values: Resolving inconsistencies in coding systems between different data sources.
+Data Masking or Anonymization:
+
+Protecting sensitive data: Obscuring or removing personally identifiable information (PII) to comply with privacy regulations.
+Additional Transformations:
+
+Filtering: Selecting specific rows of data based on certain criteria.
+Sorting: Arranging data in a specific order.
+Deduplication: Identifying and removing duplicate records.
+Data masking or anonymization: Protecting sensitive data for privacy and security.
