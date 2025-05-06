@@ -1,4 +1,4 @@
-# client-datalake-pipelines
+# myclient-datalake-pipelines
 
 This repository contains ingestion pipelines for myclient.
 

@@ -1,8 +1,8 @@
 """
-myclient_sap_orders_appflow_s3_ingest.py
+myclient_myclient-services-enty-sap-appflow-s3-ingestcdc.py
 
 Glue ingestion script placeholder for:
-client=myclient, domain=sap, entity=orders, source=appflow, target=s3, action=ingest
+client=myclient, domain=services, entity=enty, source=sap, target=s3, action=ingestcdc
 """
 from common.config import parse_args
 from common.logger import get_logger
