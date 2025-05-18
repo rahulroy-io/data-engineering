@@ -30,7 +30,7 @@ appflow_client = boto3.client('appflow')
 s3_client = boto3.resource('s3')
 glue_client = boto3.client("glue")
 
-args = getResolvedOptions(sys.argv, ['JOB_NAME', 'SOURCE_TARGET_MAPPING', 'ODATA_PATH', 'FILTER_CONFIG', 'SELECT_FIELDS','VALIDATION_CONFIG' ,'MAX_RETRIES', 'MAX_PARALLELISM', 'MAX_RUN', 'TARGET_BUCKET_INGEST', 'TARGET_BUCKET_STRUCTURED', 'TARGET_BUCKET_TEMP'])
+args = getResolvedOptions(sys.argv, ['JOB_NAME', 'SOURCE_TARGET_MAPPING', 'ODATA_PATH', 'FILTER_CONFIG','VALIDATION_CONFIG' ,'MAX_RETRIES', 'MAX_PARALLELISM', 'MAX_RUN', 'TARGET_BUCKET_INGEST', 'TARGET_BUCKET_STRUCTURED', 'TARGET_BUCKET_TEMP'])
 # args = getResolvedOptions(sys.argv, ['JOB_NAME', 'FILTER_CONFIG', 'SELECT_FIELDS', 'VALIDATION_CONFIG', 'MAX_RETRIES', 'MAX_PARALLELISM', 'MAX_RUN', 'TARGET_BUCKET_INGEST', 'TARGET_BUCKET_STRUCTURED', 'TARGET_BUCKET_TEMP'])
 
 if '--WORKFLOW_NAME' in sys.argv and '--WORKFLOW_RUN_ID' in sys.argv:
@@ -68,7 +68,7 @@ TARGET_BUCKET_INGEST = str(args['TARGET_BUCKET_INGEST'])
 TARGET_BUCKET_STRUCTURED = str(args['TARGET_BUCKET_STRUCTURED'])
 TARGET_BUCKET_TEMP = str(args['TARGET_BUCKET_TEMP'])
 
-glue_job = 'gluejob_env_client_domain_entity_source_connect_target_action'
+glue_job = 'nbtest_prod_jkt_ztbsaletgtq02srv_ztbsaletgtq02results_sap_appflow_s3_ingesthistory'
 app, env, client, domain, entity, source, connect, target, action = glue_job.split("_")
 
 flow_name = f"appflow-{env}-{client}-{domain}-{entity}-{source}-{target}-{action}"
@@ -602,50 +602,53 @@ print (f"failed_dts :: {failed_dts}")
 print("All tasks completed.")
 
 print('##########TASK04-RAW-INGESTION-COMPLETED-SUCCESSFULLY##########')
-# task_queue, n = task_queue, MAX_RUN
+task_queue, n = task_queue, MAX_RUN
 
-# active_tasks = []  
-# passed_dts = []
-# failed_dts = []
+active_tasks = []  
+passed_dts = []
+failed_dts = []
 
-# loop = 50
-# outer_loop = 0
-# inner_loop = 0
+loop = 50
+outer_loop = 0
+inner_loop = 0
 
-# while not task_queue.empty() or active_tasks:  
-#     # Start monitoring up to n tasks  
-#     outer_loop = outer_loop + 1
-#     if outer_loop==loop: break
-#     while len(active_tasks) < n and not task_queue.empty():  
-#         task = task_queue.get()
-#         active_tasks.append(task) 
-#         # print(f"Started monitoring task {task.dt}")  
-#         inner_loop = inner_loop + 1
-#         if inner_loop==loop: break
-#     # Process active tasks
-#     try:
-#         for task in active_tasks[:]:
-#             if task.started:
-#                 status = task.excetion_monitor_and_retry()
-#                 print(f"{task.flow_name} : {task.execution_id} : {task.dt} : {status} : retry -> {task.retry-1}")
-#                 time.sleep(2)
-#             else:
-#                 task.create_and_start()
-#                 time.sleep(4)
-#                 status = task.excetion_monitor_and_retry()
-#                 print(f"{task.flow_name} : {task.execution_id} : {task.dt} : {status} : retry -> {task.retry-1}")
+while not task_queue.empty() or active_tasks:  
+    # Start monitoring up to n tasks  
+    outer_loop = outer_loop + 1
+    if outer_loop==loop: break
+    while len(active_tasks) < n and not task_queue.empty():  
+        task = task_queue.get()
+        active_tasks.append(task) 
+        # print(f"Started monitoring task {task.dt}")  
+        inner_loop = inner_loop + 1
+        if inner_loop==loop: break
+    # Process active tasks
+    try:
+        for task in active_tasks[:]:
+            if task.started:
+                status = task.excetion_monitor_and_retry()
+                print(f"{task.flow_name} : {task.execution_id} : {task.dt} : {status} : retry -> {task.retry-1}")
+                time.sleep(2)
+            else:
+                task.create_and_start()
+                time.sleep(4)
+                status = task.excetion_monitor_and_retry()
+                print(f"{task.flow_name} : {task.execution_id} : {task.dt} : {status} : retry -> {task.retry-1}")
 
-#             if status[0]:
-#                 # print(f"Task {task.dt} reached terminal state")
-#                 print(f"{task.flow_name} : {task.execution_id} : {task.dt} : {status} : retry -> {task.retry-1} : records_processed -> {task.records_processed}")
-#                 passed_dts.append(task.dt)
-#                 if task.records_processed>0:
-#                     push_to_structured(appflow_ingest_prefix, appflow_structured_prefix, flow_name, task.execution_id, task.dt, filter_field, source_target_mapping_dict, TARGET_BUCKET_INGEST, TARGET_BUCKET_STRUCTURED)
-#                     print (appflow_ingest_prefix, appflow_structured_prefix, flow_name, task.execution_id, task.dt, filter_field, source_target_mapping_dict, TARGET_BUCKET_INGEST, TARGET_BUCKET_STRUCTURED)
-#                 active_tasks.remove(task)
-#                 print (inner_loop, outer_loop)
+            if status[0]:
+                # print(f"Task {task.dt} reached terminal state")
+                print(f"{task.flow_name} : {task.execution_id} : {task.dt} : {status} : retry -> {task.retry-1} : records_processed -> {task.records_processed}")
+                passed_dts.append(task.dt)
+                if task.records_processed>0:
+                    push_to_structured(appflow_ingest_prefix, appflow_structured_prefix, flow_name, task.execution_id, task.dt, filter_field, source_target_mapping_dict, TARGET_BUCKET_INGEST, TARGET_BUCKET_STRUCTURED)
+                    print (appflow_ingest_prefix, appflow_structured_prefix, flow_name, task.execution_id, task.dt, filter_field, source_target_mapping_dict, TARGET_BUCKET_INGEST, TARGET_BUCKET_STRUCTURED)
+                active_tasks.remove(task)
+                print (inner_loop, outer_loop)
                 
-#     except Exception as e:
-#         failed_dts.append(task.dt)
-#         print (f"ERROR : {e}: {task.flow_name} : {task.execution_id} : {task.dt} : {status} : retry -> {task.retry-1}")
+    except Exception as e:
+        failed_dts.append(task.dt)
+        print (f"ERROR : {e}: {task.flow_name} : {task.execution_id} : {task.dt} : {status} : retry -> {task.retry-1}")
+appflow_client.describe_flow(
+    flowName='appflow-prod-jkt-ztbsaletgtq02srv-ztbsaletgtq02results-sap-s3-ingesthistory'
+)
 job.commit()
