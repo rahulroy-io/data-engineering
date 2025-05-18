@@ -1,2 +1,0 @@
--- Athena SQL queries for domain-entity-env
--- Place transformation/aggregation queries here
