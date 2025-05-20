@@ -1,0 +1,27 @@
+Phase,Sub-Phase / Task,Day # (range),Effort (person-days),Daily Goal / Deliverable
+"Planning & Design","Requirement gathering for source tables (MSSQL & SAP)",1,1,"Workshop with business/DBAs to finalize table lists, schemas, and data volumes"
+"Planning & Design","Kick-off + Connectivity handshake",2,1,"Validate DevOps endpoints, Secrets Manager keys, PrivateLink reachability"
+"Planning & Design","Ingestion design doc (naming, S3 zones, Glue Workflow DAG, rollback strategy)",3,1,"Draft & circulate design; freeze folder/job conventions"
+"Planning & Design","Schema discovery & edge-case register",4,1,"Run Glue Crawler / DESCRIBE; flag SAP decimals, DATETIME2, variant types"
+"Implementation / Development","Manual infra provisioning: S3 buckets, Secret Manager, Glue & AppFlow connections, Athena databases",5-6,2,"Create and test S3 buckets; configure secrets; validate Glue catalog & AppFlow endpoints; create Athena DBs"
+"Implementation / Development","Build reusable JDBC pipeline skeleton (PySpark class + config JSON)",7-8,2,"Pilot two SQL-Server tables end-to-end in dev S3 bucket"
+"Implementation / Development","Build AppFlow wrapper (start-flow, poll, SNS trigger) & consumer Glue job",9-10,2,"Land two SAP entity sets; normalize to raw + structured folders"
+"Implementation / Development","Historical back-load scripts for pilot tables (both connectors)",11,1,"One-time bulk load runs succeed; document throughput"
+"Implementation / Development","Scale-out remaining JDBC tables (batch of 5/day)",12-14,3,"All twenty tables parameterized and loading in dev"
+"Implementation / Development","Scale-out remaining SAP entity sets (batch of 6/day)",15-17,3,"All twenty entity sets landed & converted"
+"Implementation / Development","Config management & environment parameterization (dev/prod JSONs, Glue Workflow manifests)",18-19,2,"Templates ready; CI/CD hand-off package prepared"
+"Testing & Validation","Unit tests (nulls, deleted rows, schema drift)",20-21,2,"All pipelines green in pytest / Glue job bookmarks verified"
+"Testing & Validation","Snowpipe proof-of-concept: S3→Snowflake data movement test",22,1,"Validate Snowpipe configuration; record latency and error handling"
+"Testing & Validation","Integration tests with Snowflake team (manifest, SNS, row-count checks)",23-24,2,"Snowflake signs off on sample loads; feedback logged"
+"Testing & Validation","Performance soak & back-fill stress (3-day replay)",25,1,"Throughput baseline, partition tuning, multipart S3 thresholds set"
+"Testing & Validation","Buffer / Defect-fix window",26,1,"Reserved for fixes discovered in Days 20-25"
+"Deployment & Migration","Prod IAM & parameter promotion; runbook finalization",27,1,"Change tickets approved; prod JSONs merged to main"
+"Deployment & Migration","Non-prod go-live under Glue Workflow schedule",28,1,"First full nightly cycle completes; metrics captured"
+"Deployment & Migration","Hyper-care monitoring non-prod + incremental bug-fix",29,1,"Prove daily incremental logic; zero SLA breaches"
+"Deployment & Migration","Prod readiness review & cut-over checklist",30,1,"Stakeholder sign-off to flip prod switch"
+"Deployment & Migration","Prod cut-over (historical + first incremental)",31,1,"Prod Glue Workflow enabled; Snowflake ingest confirmed"
+"Post-Go-Live Support","Prod hyper-care & knowledge-transfer",32-33,2,"Daily dashboards reviewed, hand-over session with Ops & Snowflake"
+"Contingency / Close-out","Final buffer + project closure",34,1,"Any trailing fixes, documentation polish, lessons-learned workshop"
+,,,
+"Totals","Net planned effort: 33 person-days",,,
+"Totals","Embedded buffer: 2 person-days (~6% slack)",,,
