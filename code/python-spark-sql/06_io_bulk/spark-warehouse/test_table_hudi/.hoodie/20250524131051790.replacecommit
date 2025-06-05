@@ -1,0 +1,42 @@
+{
+  "partitionToWriteStats" : {
+    "1" : [ {
+      "fileId" : "10617428-f6d5-48f1-92c1-241ffc8e235f-0",
+      "path" : "1/10617428-f6d5-48f1-92c1-241ffc8e235f-0_0-16-16_20250524131051790.parquet",
+      "cdcStats" : null,
+      "prevCommit" : "null",
+      "numWrites" : 100,
+      "numDeletes" : 0,
+      "numUpdateWrites" : 0,
+      "numInserts" : 100,
+      "totalWriteBytes" : 435068,
+      "totalWriteErrors" : 0,
+      "tempPath" : null,
+      "partitionPath" : "1",
+      "totalLogRecords" : 0,
+      "totalLogFilesCompacted" : 0,
+      "totalLogSizeCompacted" : 0,
+      "totalUpdatedRecordsCompacted" : 0,
+      "totalLogBlocks" : 0,
+      "totalCorruptLogBlock" : 0,
+      "totalRollbackBlocks" : 0,
+      "fileSizeInBytes" : 435068,
+      "minEventTime" : null,
+      "maxEventTime" : null,
+      "runtimeStats" : {
+        "totalScanTime" : 0,
+        "totalUpsertTime" : 0,
+        "totalCreateTime" : 3262
+      }
+    } ]
+  },
+  "compacted" : false,
+  "extraMetadata" : {
+    "schema" : "{\"type\":\"record\",\"name\":\"test_table_hudi_record\",\"namespace\":\"hoodie.test_table_hudi\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"pid\",\"type\":\"string\"}]}",
+    "__partition_columns" : "[\"pid\"]"
+  },
+  "operationType" : "INSERT_OVERWRITE",
+  "partitionToReplaceFileIds" : {
+    "1" : [ ]
+  }
+}
