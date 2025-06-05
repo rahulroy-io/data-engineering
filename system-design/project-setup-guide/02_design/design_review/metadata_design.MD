@@ -1,74 +1,79 @@
-# Comprehensive Enumerations for Event Log Schema
+# Comprehensive Enumerations for Event Log Schema (v2: Custom Columns)
 
 ## Table Columns
 
 ```
-job_name        -- Name of the Glue job or workflow (string)
-job_run_id      -- Unique ID per execution (string/uuid)
-event_type      -- High-level category for event (string)
-event_name      -- Specific event or step (string)
-event_payload   -- JSON string with event details (string/JSON)
-metric_name     -- Key for numeric/boolean metric (string, nullable)
-metric_value    -- Value of metric (double, nullable)
-event_ts        -- Timestamp of event (timestamp)
-event_date      -- Partition column (date, derived from event_ts)
-env             -- Environment (dev/uat/prod)
+record_id           -- Unique UUID per record (string, PK)
+step                -- Auto-incremented integer for event order in job (int)
+task                -- Task identifier (string, e.g. sub-step or component)
+job_name            -- Name of the Glue job or workflow (string)
+job_run_id          -- Unique ID per execution (string/uuid)
+job_type            -- High-level job type (parsed from job_name; e.g., 'nbjob', 'gluejob')
+event_type          -- High-level event category (string)
+event_name          -- Specific event or step name (string)
+event_payload       -- JSON string with event details (string/JSON)
+event_state         -- Outcome of the event ('success', 'fail', 'running', etc.)
+metric_name         -- Key for numeric/boolean metric (string, nullable)
+metric_value        -- Value of metric (double/float, nullable)
+event_ts_epoch      -- Event timestamp (epoch seconds, float)
+event_ts_isoformat  -- Event timestamp (ISO-8601 string)
+event_date          -- Partition/date column (yyyy-mm-dd)
+env                 -- Environment (dev/uat/prod)
 ```
 
 ---
 
 ## 1. `event_type` – Canonical Categories
 
-| Value             | Description                                         |
-| ----------------- | --------------------------------------------------- |
-| JOB\_START        | Start of a job run                                  |
-| JOB\_END          | End of a job run (success/failure)                  |
-| STEP\_START       | Beginning of a processing step                      |
-| STEP\_END         | End of a processing step                            |
-| VALIDATION        | Data quality/validation check                       |
-| METADATA          | Emitting table schema, partition, or system info    |
-| ERROR             | Exception, failure, or warning                      |
-| INFO              | Informational, not an error                         |
-| METRIC            | Numeric/boolean metric (row count, file size, etc.) |
-| COMPACTION\_START | Start of Hudi compaction                            |
-| COMPACTION\_END   | End of Hudi compaction                              |
-| NOTIFICATION      | Notification events (SNS, email)                    |
-| RETRY             | Retry attempt of an action                          |
-| EXTERNAL\_CALL    | External system/API/Secrets Manager call            |
+| Value          | Description                                         |
+| -------------- | --------------------------------------------------- |
+| JOB\_STATUS    | Job status events (start, end, etc.)                |
+| STEP\_STATUS   | Status of a specific processing step                |
+| VALIDATION     | Data quality/validation check                       |
+| METADATA       | Emitting table schema, partition, or system info    |
+| ERROR          | Exception, failure, or warning                      |
+| INFO           | Informational, not an error                         |
+| METRIC         | Numeric/boolean metric (row count, file size, etc.) |
+| COMPACTION     | Hudi compaction lifecycle events                    |
+| NOTIFICATION   | Notification events (SNS, email)                    |
+| RETRY          | Retry attempt of an action                          |
+| EXTERNAL\_CALL | External system/API/Secrets Manager call            |
 
 ---
 
 ## 2. `event_name` – Specific Actions or Steps
 
-| Value                        | Description                            |
-| ---------------------------- | -------------------------------------- |
-| JOB\_START / JOB\_END        | Start/end of the job execution         |
-| READ\_JDBC\_START / END      | Read from JDBC source (start/end)      |
-| READ\_PARQUET\_START / END   | Read Parquet files from S3 (start/end) |
-| TRANSFORM\_START / END       | Data transformation (start/end)        |
-| JOIN\_DATA\_START / END      | Join operation (start/end)             |
-| AGGREGATE\_START / END       | Aggregation operation (start/end)      |
-| VALIDATION\_SCHEMA           | Schema conformity check                |
-| VALIDATION\_NOT\_NULL        | Null check on critical columns         |
-| VALIDATION\_UNIQUE\_KEY      | Uniqueness check                       |
-| WRITE\_S3\_START / END       | Write results to S3                    |
-| WRITE\_HUDI\_START / END     | Write to Hudi table                    |
-| WRITE\_REDSHIFT\_START / END | Write to Redshift                      |
-| COMPACTION\_START / END      | Hudi compaction operation              |
-| CLEANUP\_START / END         | Maintenance/cleanup                    |
-| EMIT\_TABLE\_SCHEMA          | Emitting target table schema           |
-| UPDATE\_CATALOG\_START / END | Update Glue Data Catalog               |
-| FETCH\_SECRET\_START / END   | Retrieve AWS Secrets                   |
-| API\_CALL\_START / END       | Call to external API                   |
-| RETRY\_READ\_JDBC            | Retried JDBC read                      |
-| SNS\_NOTIFICATION\_SENT      | Notification sent (SNS)                |
-| INFO\_BROADCAST\_COMPLETED   | Informational events                   |
-| HEARTBEAT                    | Liveness check                         |
+| Value                          | Description                       |
+| ------------------------------ | --------------------------------- |
+| JOB\_STARTED                   | Job execution has started         |
+| JOB\_COMPLETED                 | Job finished (success or failure) |
+| JOB\_FAILED                    | Job execution failed              |
+| STEP\_STARTED                  | Step has started                  |
+| STEP\_COMPLETED                | Step completed                    |
+| STEP\_FAILED                   | Step failed                       |
+| VALIDATION\_SCHEMA             | Schema conformity check           |
+| VALIDATION\_NOT\_NULL          | Null check on critical columns    |
+| VALIDATION\_UNIQUE\_KEY        | Uniqueness check                  |
+| WRITE\_S3\_STARTED/COMPLETED   | Writing to S3 start/completion    |
+| WRITE\_HUDI\_STARTED/COMPLETED | Writing to Hudi start/completion  |
+| READ\_JDBC\_STARTED/COMPLETED  | Read JDBC start/completion        |
+| METRIC\_ROW\_COUNT             | Row count metric emitted          |
+| METRIC\_FILE\_SIZE\_MB         | File size metric emitted          |
+| COMPACTION\_STARTED            | Hudi compaction started           |
+| COMPACTION\_COMPLETED          | Hudi compaction finished          |
+| ERROR\_EXCEPTION               | Error/exception event             |
+| NOTIFICATION\_SENT             | Notification sent (SNS, email)    |
+| EXTERNAL\_CALL\_START/END      | External API call event           |
 
 ---
 
 ## 3. `event_payload` – Example JSONs
 
+* **Minimal string (for debugging/test):**
+
+  ```json
+  "abcd"
+  ```
 * **Source Read**
 
   ```json
@@ -83,11 +88,6 @@ env             -- Environment (dev/uat/prod)
 
   ```json
   {"target_path":"s3://bucket/...","file_format":"parquet","partition_cols":["dt"],"target_row_count":15400}
-  ```
-* **Compaction**
-
-  ```json
-  {"hudi_table_name":"job_metadata_hudi","commit_time":"20240605123000","num_files_before":12,"num_files_after":1,"elapsed_seconds":8.7}
   ```
 * **Error**
 
@@ -107,10 +107,23 @@ env             -- Environment (dev/uat/prod)
 
 ---
 
-## 4. `metric_name` – Canonical Metrics
+## 4. `event_state` – Canonical States
+
+| Value   | Description                            |
+| ------- | -------------------------------------- |
+| success | Event/task/step completed successfully |
+| fail    | Event/task/step failed                 |
+| running | Task/step/event in progress            |
+| warning | Completed but with warnings            |
+| skipped | Task/step was skipped                  |
+
+---
+
+## 5. `metric_name` – Canonical Metrics
 
 | Value                | Description                           |
 | -------------------- | ------------------------------------- |
+| duration\_seconds    | Duration of the event/step in seconds |
 | source\_row\_cnt     | Rows read from source                 |
 | target\_row\_cnt     | Rows written to target                |
 | dq\_rule\_passed     | DQ rule passed (1/0)                  |
@@ -129,31 +142,120 @@ env             -- Environment (dev/uat/prod)
 
 ---
 
-## 5. `metric_value` – Example Values
+## 6. `metric_value` – Example Values
 
 * For row counts: `15423.0`
 * For boolean results: `1.0` (true), `0.0` (false)
-* For durations: `12.4`
+* For durations: `12.4`, `0.0`
 * For sizes: `32.8`
 * For retries/errors: `2.0`, `0.0`, etc.
 * For cost: `0.031`
 
 ---
 
-## 6. Example Event Log Rows
+## 7. Example Usage (Python)
 
-| job\_name              | job\_run\_id   | event\_type       | event\_name        | event\_payload                                    | metric\_name     | metric\_value | event\_ts            | event\_date | env  |
-| ---------------------- | -------------- | ----------------- | ------------------ | ------------------------------------------------- | ---------------- | ------------- | -------------------- | ----------- | ---- |
-| minda\_marketingdbo... | 20240605120000 | JOB\_START        | JOB\_START         | ""                                                | NULL             | NULL          | 2024-06-05T12:00:00Z | 2024-06-05  | prod |
-| minda\_marketingdbo... | 20240605120000 | STEP\_START       | READ\_JDBC\_START  | {"jdbc\_url":"..."}                               | NULL             | NULL          | 2024-06-05T12:00:10Z | 2024-06-05  | prod |
-| minda\_marketingdbo... | 20240605120000 | METRIC            | READ\_JDBC\_END    | {"source\_row\_count":15423}                      | source\_row\_cnt | 15423.0       | 2024-06-05T12:00:22Z | 2024-06-05  | prod |
-| minda\_marketingdbo... | 20240605120000 | VALIDATION        | VALIDATION\_SCHEMA | {"error\_message":"Column 'order\_date' missing"} | NULL             | NULL          | 2024-06-05T12:01:00Z | 2024-06-05  | prod |
-| minda\_marketingdbo... | 20240605120000 | STEP\_START       | WRITE\_S3\_START   | {"target\_path":"s3://..."}                       | NULL             | NULL          | 2024-06-05T12:05:00Z | 2024-06-05  | prod |
-| minda\_marketingdbo... | 20240605120000 | METRIC            | WRITE\_S3\_END     | {"target\_row\_count":15400}                      | target\_row\_cnt | 15400.0       | 2024-06-05T12:05:15Z | 2024-06-05  | prod |
-| minda\_marketingdbo... | 20240605120000 | COMPACTION\_START | COMPACTION\_START  | {"hudi\_table":"job\_metadata\_hudi"}             | NULL             | NULL          | 2024-06-05T02:00:00Z | 2024-06-05  | prod |
-| minda\_marketingdbo... | 20240605120000 | COMPACTION\_END   | COMPACTION\_END    | {"num\_files\_before":5,"num\_files\_after":1}    | NULL             | NULL          | 2024-06-05T02:00:04Z | 2024-06-05  | prod |
-| minda\_marketingdbo... | 20240605120000 | JOB\_END          | JOB\_END           | ""                                                | NULL             | NULL          | 2024-06-05T12:10:00Z | 2024-06-05  | prod |
+```python
+import uuid
+from datetime import datetime
+
+class CustomRange:
+    def __init__(self, start, prefix=''):
+        self.current = start
+        self.prefix = prefix
+    def __iter__(self):
+        return self
+    def __next__(self):
+        self.current += 1
+        return f"{self.prefix}{self.current}"
+
+# Usage:
+auto_increment = CustomRange(start=-1)
+
+sample_record = {
+    "record_id": str(uuid.uuid4()),
+    "step": next(auto_increment),
+    "task": "task_id",
+    "job_name": JOB_NAME,
+    "job_run_id": JOB_RUN_ID,
+    "job_type": JOB_NAME.split('_')[0],
+    "event_type": "JOB_STATUS",
+    "event_name": "JOB_STARTED",
+    "event_payload": "abcd",
+    "event_state": "success",
+    "metric_name": "duration_seconds",
+    "metric_value": '0.0',
+    "event_ts_epoch": datetime.now().timestamp(),
+    "event_ts_isoformat": datetime.now().isoformat(),
+    "event_date": datetime.today().strftime('%Y-%m-%d'),
+    "env": JOB_NAME.split('_')[1]
+}
+
+# ... in your ingestion loop, collect records as list of dicts ...
+
+# Then write using your existing write_job_metadata_to_hudi()
+
+write_job_metadata_to_hudi(
+    spark,
+    hudi_table_path='s3://bucket/tmp/metadata_tbl/',
+    table_name='metadata_tbl',
+    records=[sample_record],
+    hudi_database='test_db',
+    partition_keys=["job_run_id"],
+    record_key="job_run_id"
+)
+```
 
 ---
 
-*You can adapt/expand these lists as your system evolves, but this table covers 99% of common job event and metric tracking needs for Glue/Athena/Hudi metadata systems.*
+## 8. Sample Hudi Insert Function (with comments)
+
+```python
+from pyspark.sql import functions as F
+
+def write_job_metadata_to_hudi(
+    spark,
+    hudi_table_path: str,
+    table_name: str,
+    records: list,
+    hudi_database: str = "default",
+    partition_keys: list = ["job_run_id"],
+    record_key: str = "record_id"
+):
+    """
+    Insert job metadata records into Hudi table (MOR, insert-only).
+    """
+    # Convert records list of dicts to DataFrame
+    df = spark.createDataFrame(records).withColumn("timestamp", F.current_timestamp())
+
+    # Hudi options for insert-only, MOR
+    hudi_options = {
+        "hoodie.table.name": table_name,
+        "hoodie.datasource.write.table.type": "MERGE_ON_READ",
+        "hoodie.datasource.write.operation": "insert",
+        "hoodie.datasource.write.hive_style_partitioning": 'true',
+        "hoodie.datasource.write.recordkey.field": record_key,
+        "hoodie.datasource.write.partitionpath.field": ",".join(partition_keys),
+        "hoodie.datasource.write.precombine.field": "timestamp",  # Not used but required
+        "hoodie.upsert.shuffle.parallelism": 1,
+        "hoodie.insert.shuffle.parallelism": 1,
+        "hoodie.datasource.hive_sync.enable": "true",
+        "hoodie.datasource.hive_sync.database": hudi_database,
+        "hoodie.datasource.hive_sync.table": table_name,
+        "hoodie.datasource.hive_sync.partition_fields": ",".join(partition_keys),
+        "hoodie.datasource.hive_sync.use_jdbc": "false",  # For Glue/Athena
+        "hoodie.cleaner.policy.failed.writes": "EAGER"
+    }
+
+    # Write DataFrame to Hudi table
+    (
+        df.write.format("hudi")
+        .options(**hudi_options)
+        .mode("append")
+        .save(hudi_table_path)
+    )
+```
+
+---
+
+*This structure supports detailed job tracking, step-wise tracing, Hudi/Athena compatibility, and strong partitioning for fast analytics in Glue/Athena.*
